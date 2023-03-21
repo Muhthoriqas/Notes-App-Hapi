@@ -23,8 +23,8 @@ const addNoteHandler = (request, h) => {
 
   if (isSuccess) {
     const response = h.response({
-      status: 'Success',
-      message: 'Sucess Make Notes',
+      status: 'success',
+      message: 'Catatan berhasil ditambahkan',
       data: {
         noteId: id,
       },
@@ -78,7 +78,6 @@ const editNotes = (req, h) => {
 
   const indexNotes = notes.findIndex((note) => note.id === id);
 
-  console.log(...notes[indexNotes]);
   if (indexNotes !== -1) {
     notes[indexNotes] = {
       ...notes[indexNotes],
@@ -110,14 +109,15 @@ const deleteNotes = (req, h) => {
     notes.splice(indexNotes, 1);
     const response = h.response({
       status: 'success',
-      message: 'Catatan berhasil diperbarui',
+      message: 'Catatan berhasil dihapus',
     });
     response.code(200);
     return response;
   }
+
   const response = h.response({
     status: 'fail',
-    message: 'Gagal memperbarui catatan. Id tidak ditemukan',
+    message: 'Catatan gagal dihapus. Id tidak ditemukan',
   });
   response.code(404);
   return response;

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const Hapi = require('@hapi/hapi');
 const routes = require('./routes');
 
